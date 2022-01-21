@@ -7,6 +7,6 @@ namespace NLog.Targets.ServiceHub
         [JsonProperty("sk")]
         public Guid SourceKey { get; set; }
         [JsonProperty("m")]
-        public string Message { get; set; }
+        public string? Message { get; set; }
     }
 }

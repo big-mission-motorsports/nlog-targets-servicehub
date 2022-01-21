@@ -1,4 +1,5 @@
-﻿using BigMission.CommandTools;
+﻿#pragma warning disable 8618
+using BigMission.CommandTools;
 using Microsoft.AspNetCore.SignalR.Client;
 using NLog.Config;
 using NLog.Layouts;
@@ -57,19 +58,19 @@ namespace NLog.Targets.ServiceHub
             var sourceKey = SourceKey.Render(logEvent);
             var lm = new LogMessage { Message = message, SourceKey = new Guid(sourceKey) };
 
-            //if (hubConnection.State == HubConnectionState.Disconnected)
-            //{
-            //    try
-            //    {
-            //        hubConnection.StartAsync().Wait();
-            //    }
-            //    catch { }
-            //}
+            if (hubConnection.State == HubConnectionState.Disconnected)
+            {
+                try
+                {
+                    hubConnection.StartAsync().Wait();
+                }
+                catch { }
+            }
 
-            //if (hubConnection.State == HubConnectionState.Connected)
-            //{
-            //    hubConnection.SendAsync("PostLogMessage", lm).Wait();
-            //}
+            if (hubConnection.State == HubConnectionState.Connected)
+            {
+                hubConnection.SendAsync("PostLogMessage", lm).Wait();
+            }
         }
     }
 }
