@@ -58,11 +58,11 @@ namespace NLog.Targets.ServiceHub
             var sourceKey = SourceKey.Render(logEvent);
             var lm = new LogMessage { Message = message, SourceKey = new Guid(sourceKey) };
 
-            if (hubConnection.State == HubConnectionState.Disconnected)
+            if (hubConnection.State == HubConnectionState.Disconnected && hubConnection.State != HubConnectionState.Connecting)
             {
                 try
                 {
-                    hubConnection.StartAsync().Wait();
+                    hubConnection.StartAsync();
                 }
                 catch { }
             }
