@@ -18,8 +18,8 @@
 
 	<ItemGroup>
 		<PackageReference Include="BigMission.CommandTools" Version="2.0.0-CI-20230703-001026" />
+		<PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="6.0.19" />
 		<PackageReference Include="NLog" Version="5.2.0" />
-		<PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="7.0.8" />
 	</ItemGroup>
 
 </Project>
