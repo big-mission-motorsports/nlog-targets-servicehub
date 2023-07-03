@@ -4,15 +4,22 @@
 		<TargetFramework>net6.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>disable</Nullable>
+		<Title>NLog.Targets.ServiceHub</Title>
+		<Version>2.0.0.0</Version>
+		<Authors>Brian Griggs</Authors>
+		<Company>Big Mission Motorsports, LLC</Company>
+		<Product>Red Mist</Product>
+		<Description>NLog Target for sending logs to the RedMist ServiceHub</Description>
+		<Copyright>2023</Copyright>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://dev.azure.com/bigmission/RedMist/_git/NLog.Targets.ServiceHub</RepositoryUrl>
+		<IncludeSymbols>True</IncludeSymbols>
 	</PropertyGroup>
 
 	<ItemGroup>
+		<PackageReference Include="BigMission.CommandTools" Version="2.0.0-CI-20230703-001026" />
 		<PackageReference Include="NLog" Version="5.2.0" />
 		<PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="7.0.8" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <ProjectReference Include="..\BigMission.CommandTools\BigMission.CommandTools.csproj" />
 	</ItemGroup>
 
 </Project>
